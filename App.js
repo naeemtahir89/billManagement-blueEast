@@ -1,20 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
 
-export default class App extends Component {
+import Home from './screens/Home';
+import Bill from './screens/Bill';
+
+class RouterComponent extends Component {
+	state = {};
 	render() {
 		return (
-			<View>
-				<Text>hello world!</Text>
-			</View>
+			<Router navigationBarStyle={{ backgroundColor: '#7ec0ee' }}>
+				<Scene key="root">
+					<Scene key="home" component={Home} title={'BILL MANAGER'} titleStyle={{ color: 'white' }} />
+					<Scene key="bill" component={Bill} initial title={'CREATE BILL'} titleStyle={{ color: 'white' }} />
+				</Scene>
+			</Router>
 		);
 	}
 }
+
+export default RouterComponent;
